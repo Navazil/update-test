@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/common/Constant.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/common/action/GenericActionSupport.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/common/dao/GenericEntityDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/common/utilclasses/Item.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/Interceptor/LoginInterceptor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/action/GeoGroupMgrAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/action/LocationMgrAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/action/userMgrAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/dao/CurrLocationDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/dao/GeoGroupDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/dao/GroupRelDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/dao/HisLocationDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/dao/UserDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/model/CurrentRecordEntity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/model/CurrentRecordEntityPK.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/model/GeoGroupEntity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/model/GroupRelEntity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/model/HisLocationEntity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/model/UserEntity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/service/GeoGroupService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/service/LocationService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/service/UserService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/service/impl/GeoGroupServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/service/impl/LocationServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/service/impl/UserServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/structs/GroupInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/structs/GroupMember.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/structs/LocationRecord.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/structs/SimLocationRecord.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/structs/SimUserInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/sys/userInfo/structs/UserInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/util/DateJsonValueProcessorUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/util/framework/ProxoolServletContextListener.java" charset="UTF-8" />
+  </component>
+</project>

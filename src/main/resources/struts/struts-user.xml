@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <package name="User" extends="json-default" namespace="/">
+                <interceptors>
+                        <interceptor name="loginInterceptor" class="app.sys.userInfo.Interceptor.LoginInterceptor" />
+                        <interceptor-stack name="sessionInterceptor">
+                                <interceptor-ref name="loginInterceptor">
+                                        <param name="excludeMethods">login,register,test</param>
+                                </interceptor-ref>
+                                <interceptor-ref name="defaultStack"></interceptor-ref>
+                        </interceptor-stack>
+                </interceptors>
+                <default-interceptor-ref name="sessionInterceptor" />
+
+                <action name="register"  class="app.sys.userInfo.action.userMgrAction" method="register">
+                        <result name="success" type="json"/>
+                        <result name="error" type="json"/>
+                </action>
+                <action name="queryUserInfo" class="app.sys.userInfo.action.userMgrAction" method="queryUserInfo">
+                        <result name="success" type="json"/>
+                        <result name="error" type="json"/>
+                </action>
+                <action name="querySimpleUserInfo" class="app.sys.userInfo.action.userMgrAction" method="querySimpleUserInfo">
+                        <result name="success" type="json"/>
+                        <result name="error" type="json"/>
+                </action>
+                <action name="login" class="app.sys.userInfo.action.userMgrAction" method="login">
+                        <result name="success" type="json"/>
+                        <result name="error" type="json"/>
+                </action>
+                <action name="uploadImage" class="app.sys.userInfo.action.userMgrAction" method="uploadImage">
+                        <result name="success" type="json"/>
+                        <result name="error" type="json"/>
+                </action>
+                <action name="updateUserInfo" class="app.sys.userInfo.action.userMgrAction" method="updateUserInfo">
+                        <result name="success" type="json"/>
+                        <result name="error" type="json"/>
+                </action>
+                <action name="logout" class="app.sys.userInfo.action.userMgrAction" method="logout">
+                        <result name="success" type="json"/>
+                        <result name="error" type="json"/>
+                </action>
+                <action name="test" class="app.sys.userInfo.action.userMgrAction" method="test">
+                        <result name="success" type="stream"/>
+                </action>
+        </package>
+
+</struts>

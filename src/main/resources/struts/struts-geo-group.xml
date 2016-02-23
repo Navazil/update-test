@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="Group" extends="json-default" namespace="/">
+        <interceptors>
+            <interceptor name="loginInterceptor" class="app.sys.userInfo.Interceptor.LoginInterceptor" />
+            <interceptor-stack name="sessionInterceptor">
+                <interceptor-ref name="loginInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="sessionInterceptor" />
+        <action name="createGroup" class="app.sys.userInfo.action.GeoGroupMgrAction" method="createGeoGroup">
+            <result name="success" type="json"/>
+            <result name="error" type="json"/>
+        </action>
+        <action name="addGroupMember" class="app.sys.userInfo.action.GeoGroupMgrAction" method="addGroupMember">
+            <result name="success" type="json"/>
+            <result name="error" type="json"/>
+        </action>
+        <action name="removeGroupMember" class="app.sys.userInfo.action.GeoGroupMgrAction" method="removeGroupMember">
+            <result name="success" type="json"/>
+            <result name="error" type="json"/>
+        </action>
+        <action name="queryGroupInfo" class="app.sys.userInfo.action.GeoGroupMgrAction" method="queryGroupInfo">
+            <result name="success" type="json"/>
+            <result name="error" type="json"/>
+        </action>
+        <action name="queryUserGroupInfo" class="app.sys.userInfo.action.GeoGroupMgrAction" method="queryUserGroupInfo">
+            <result name="success" type="json"/>
+            <result name="error" type="json"/>
+        </action>
+    </package>
+
+</struts>

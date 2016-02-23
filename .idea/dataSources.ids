@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - hubeigaofeng@192.168.1.179" uuid="af2228fb-33ab-4040-a499-2a79d5f98cb0">
+    <database-info product="MySQL" version="5.6.26" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="hubeigaofeng"/>
+    <table name="current_record" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="curr_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="longitude" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="latitude" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="time" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_shared" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="curr_id,user_id"/>
+      <foreign-key name="current_record_ibfk_1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="geo_group" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="founder" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="profile" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="group_id"/>
+      <foreign-key name="geo_group_ibfk_1" columns="founder" ref-table="user" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="group_rs_ibfk_1" table="group_rel" schema="" catalog="hubeigaofeng" columns="group_id"/>
+    </table>
+    <table name="group_rel" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="relation_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="relation_id"/>
+      <foreign-key name="group_rs_ibfk_1" columns="group_id" ref-table="geo_group" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="group_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="group_rs_ibfk_2" columns="user_id" ref-table="user" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="his_location" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="his_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="longitude" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="latitude" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="time" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_shared" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="his_id"/>
+      <foreign-key name="his_location_ibfk_1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="t_c3p0" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="a" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+    </table>
+    <table name="user" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="enable_share" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nickname" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="avatar" sqlType="VARCHAR" precision="80" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="tel" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="gender" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="signature" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="session_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+      <exported-key name="current_record_ibfk_1" table="current_record" schema="" catalog="hubeigaofeng" columns="user_id"/>
+      <exported-key name="geo_group_ibfk_1" table="geo_group" schema="" catalog="hubeigaofeng" columns="founder"/>
+      <exported-key name="group_rs_ibfk_2" table="group_rel" schema="" catalog="hubeigaofeng" columns="user_id"/>
+      <exported-key name="his_location_ibfk_1" table="his_location" schema="" catalog="hubeigaofeng" columns="user_id"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - hubeigaofeng@localhost" uuid="ab6f5860-4a33-4f26-b4b7-851c3dd22903">
+    <database-info product="MySQL" version="5.6.11" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="hubeigaofeng"/>
+    <table name="current_record" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="curr_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="longitude" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="latitude" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="time" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_shared" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="curr_id,user_id"/>
+      <foreign-key name="current_record_ibfk_1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="geo_group" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="founder" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="profile" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="group_id"/>
+      <foreign-key name="geo_group_ibfk_1" columns="founder" ref-table="user" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="group_rs_ibfk_1" table="group_rel" schema="" catalog="hubeigaofeng" columns="group_id"/>
+    </table>
+    <table name="group_rel" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="relation_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="77+977+9z7Xvv73Ute+/vWlk" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="77+977+9aWQ="/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="77+9w7vvv71pZA=="/>
+      <primary-key name="PRIMARY" columns="relation_id"/>
+      <foreign-key name="group_rs_ibfk_1" columns="group_id" ref-table="geo_group" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="group_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="group_rs_ibfk_2" columns="user_id" ref-table="user" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="his_location" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="his_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="longitude" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="latitude" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="time" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_shared" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="his_id"/>
+      <foreign-key name="his_location_ibfk_1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="hubeigaofeng" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="t_c3p0" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="a" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+    </table>
+    <table name="user" schema="" catalog="hubeigaofeng" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="enable_share" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nickname" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="avatar" sqlType="VARCHAR" precision="80" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="tel" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="gender" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="signature" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="session_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+      <exported-key name="current_record_ibfk_1" table="current_record" schema="" catalog="hubeigaofeng" columns="user_id"/>
+      <exported-key name="geo_group_ibfk_1" table="geo_group" schema="" catalog="hubeigaofeng" columns="founder"/>
+      <exported-key name="group_rs_ibfk_2" table="group_rel" schema="" catalog="hubeigaofeng" columns="user_id"/>
+      <exported-key name="his_location_ibfk_1" table="his_location" schema="" catalog="hubeigaofeng" columns="user_id"/>
+    </table>
+  </data-source>
+</component>

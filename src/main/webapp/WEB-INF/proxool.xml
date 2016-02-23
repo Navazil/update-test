@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<something-else-entirely>
+    <proxool>
+        <alias>Develop</alias>
+        <driver-url>jdbc:mysql://192.168.1.179:3306/hubeigaofeng</driver-url>
+        <driver-class>com.mysql.jdbc.Driver</driver-class>
+        <driver-properties>
+            <property name="user" value="root"/>
+            <property name="password" value="mysql"/>
+        </driver-properties>
+        <maximum-active-time>3000000</maximum-active-time>
+        <connection-lifetime>60</connection-lifetime>
+        <maximum-connection-count>150</maximum-connection-count>
+        <minimum-connection-count>4</minimum-connection-count>
+    </proxool>
+</something-else-entirely>

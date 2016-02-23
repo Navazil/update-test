@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <!-- 是否启用开发模式 -->
+        <constant name="struts.devMode" value="true" />
+        <!-- 设置在class被修改时是否热加载，发布时要设置为false -->
+        <constant name="struts.convention.classes.reload" value="true" />
+        <constant name="struts.convention.exclude.parentClassLoader" value="false" />
+        <!-- 使用struts-default默认的转换器，如果是rest的使用：rest-default，rest需要rest的jar插件 -->
+        <constant name="struts.convention.default.parent.package" value="app" />
+        <!-- 所有匹配*.action的请求都由struts2处理 -->
+        <constant name="struts.action.extension" value=",,action"/>
+        <!--设置struts2默认的locale，决定使用哪个资源文件-->
+        <constant name="struts.locale" value="de_DE"/>
+        <!-- 请求参数的编码方式 -->
+        <constant name="struts.i18n.encoding" value="UTF-8"/>
+        <!-- 是否自动加载国际化资源文件  -->
+        <constant name="struts.i18n.reload" value="true"/>
+        <!--（默认false）设置是否总是以自动装配策略创建对象-->
+        <constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="true" />
+        <!-- 让struts2支持动态方法调用 -->
+        <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+        <constant name="struts.multipart.maxSize" value="5000000"/>
+        <package name="app" extends="json-default">
+                <interceptors>
+
+                                <interceptor name="loginInterceptor" class="app.sys.userInfo.Interceptor.LoginInterceptor" />
+
+                        <interceptor-stack name="defaultTxStack">
+                                <interceptor-ref name="loginInterceptor"/>
+                                <interceptor-ref name="exception"/>
+                                <interceptor-ref name="servletConfig"/>
+                                <interceptor-ref name="i18n"/>
+                                <interceptor-ref name="prepare"/>
+                                <interceptor-ref name="scopedModelDriven"/>
+                                <interceptor-ref name="modelDriven"/>
+                                <interceptor-ref name="fileUpload"/>
+                                <interceptor-ref name="checkbox"/>
+                                <interceptor-ref name="multiselect"/>
+                                <interceptor-ref name="staticParams"/>
+                                <interceptor-ref name="actionMappingParams"/>
+                                <interceptor-ref name="params">
+                                        <param name="excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
+                                </interceptor-ref>
+                                <interceptor-ref name="conversionError"/>
+                                <!--<interceptor-ref name="validation">-->
+                                <!--<param name="excludeMethods">input,back,cancel,browse</param>-->
+                                <!--</interceptor-ref>-->
+                                <interceptor-ref name="workflow">
+                                        <param name="excludeMethods">input,back,cancel,browse</param>
+                                </interceptor-ref>
+                                <interceptor-ref name="debugging"/>
+                        </interceptor-stack>
+                </interceptors>
+                <!--<default-interceptor-ref name="defaultTxStack"/>-->
+        </package>
+        <include file="struts/struts-user.xml"/>
+        <include file="struts/struts-geo-group.xml"/>
+        <include file="struts/struts-location.xml"/>
+</struts>
